@@ -1,0 +1,49 @@
+﻿  AngleShoot.cpp
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\AngleShoot.cpp(38,156): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\AngleShoot.cpp(38,156): warning C4244:         with
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\AngleShoot.cpp(38,156): warning C4244:         [
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\AngleShoot.cpp(38,156): warning C4244:             T=float
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\AngleShoot.cpp(38,156): warning C4244:         ]
+  MainState.cpp
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\AngleShoot.cpp(38,153): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\AngleShoot.cpp(38,153): warning C4244:         with
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\AngleShoot.cpp(38,153): warning C4244:         [
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\AngleShoot.cpp(38,153): warning C4244:             T=float
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\AngleShoot.cpp(38,153): warning C4244:         ]
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Particle.h(60,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Object.cpp
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\MainState.cpp(26,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(55,57): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(55,57): warning C4244:         with
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(55,57): warning C4244:         [
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(55,57): warning C4244:             T=float
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(55,57): warning C4244:         ]
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(55,158): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(55,158): warning C4244:         with
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(55,158): warning C4244:         [
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(55,158): warning C4244:             T=float
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(55,158): warning C4244:         ]
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(56,36): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(56,36): warning C4244:         with
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(56,36): warning C4244:         [
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(56,36): warning C4244:             T=float
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(56,36): warning C4244:         ]
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(57,93): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(57,93): warning C4244:         with
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(57,93): warning C4244:         [
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(57,93): warning C4244:             T=float
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(57,93): warning C4244:         ]
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(87,50): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(87,50): warning C4244:         with
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(87,50): warning C4244:         [
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(87,50): warning C4244:             T=float
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(87,50): warning C4244:         ]
+  WorldCollision.cpp
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(87,46): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(87,46): warning C4244:         with
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(87,46): warning C4244:         [
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(87,46): warning C4244:             T=float
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Object.cpp(87,46): warning C4244:         ]
+  Generating Code...
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Particle.h(60,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Game Projek 2.vcxproj -> R:\Database(s)\C\SFML Projek\Catch The Fruit\Debug\Angle Shooter.exe

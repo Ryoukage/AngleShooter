@@ -1,0 +1,8 @@
+﻿  WorldCollision.cpp
+R:\Database(s)\C\SFML Projek\Catch The Fruit\Game Projek 2\Particle.h(61,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Generating code
+  2 of 575 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    2 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Game Projek 2.vcxproj -> R:\Database(s)\C\SFML Projek\Catch The Fruit\Release\Angle Shooter.exe
