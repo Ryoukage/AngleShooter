@@ -65,6 +65,12 @@ UI::UI() :m_score(0), m_combo(0), m_hp(100), m_waveCount(1), m_timeToNextWave(10
 	m_waveBar.setPosition({ 660.f,700.f });
 	m_waveBar.setFillColor(sf::Color::White);
 
+	m_textEffect.setFont(m_font);
+	m_textEffect.setCharacterSize(24);
+	m_textEffect.setString("Miss !");
+	m_textEffect.setStyle(sf::Text::Bold);
+	m_textEffect.setFillColor(sf::Color(255, 255, 255, 0));
+
 
 }
 
@@ -151,6 +157,11 @@ void UI::Update(sf::Time time)
 void UI::SetHit(bool l_hit)
 {
 	m_hit = l_hit;
+}
+
+sf::Text UI::GetText()
+{
+	return m_textEffect;
 }
 
 int UI::GetHP()
