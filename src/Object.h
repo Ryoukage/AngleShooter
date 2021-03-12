@@ -4,13 +4,14 @@
 #include <SFML/System.hpp>
 #include "AngleShoot.h"
 #include "Particle.h"
+#include "MainMenu.h"
 #include <vector>
 
 class Object
 {
 	friend class WorldCollision;
 public:
-	Object();
+	Object(MainMenu& l_mainMenu);
 	Object(sf::Vector2f l_velocity, sf::Vector2f l_size, sf::Color l_color, sf::Vector2f l_position);
 
 	void Draw(sf::RenderWindow& l_window);
@@ -24,6 +25,8 @@ public:
 
 	void SetErase(bool l_erase);
 	bool GetErase()const;
+
+	void ResetContainer();
 
 	sf::RectangleShape* GetShape();
 
@@ -40,6 +43,10 @@ private:
 	AngleShoot m_angleShoot;
 	sf::RectangleShape m_shape;
 	ParticleSystem m_particle;
+	
+	MainMenu* m_ptrMainMenu;
+
+	std::vector<sf::Color>m_colorSet;
 
 	sf::Vector2f m_velocity;
 
