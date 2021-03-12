@@ -4,17 +4,18 @@ int main()
 {
 	sf::RenderWindow window(sf::VideoMode(1366, 768), "Angle Shooter",sf::Style::Titlebar);
 	AngleShoot shoot;
-	Object object;
 	WorldCollision worldCollision;
 	UI ui;
+	MainMenu mainMenu;
+	Object object(mainMenu);
 
 	sf::Music music;
 	music.openFromFile("Intense.ogg");
 	music.setLoop(true);
-	music.play();
 
 	sf::Clock clock;
 	
+	bool once = false;
 	const float rotationSpeed = 500.f;
 	
 	sf::Vector2f dir;
@@ -34,11 +35,24 @@ int main()
 		sf::Event event;
 		sf::Time time = clock.restart();
 
+		mainMenu.HandleInput(window);
+
 		if (!shoot.IsDead(ui)) {
 			shoot.Update(time, ui);
 			object.Update(time, ui);
 			worldCollision.Update(object, shoot, ui, time);
-			ui.Update(time);
+			if (mainMenu.GetStart()) 
+			{
+				ui.Update(time);
+				if (!once) 
+				{
+					music.play();
+					shoot.ResetContainer();
+					object.ResetContainer();
+					music.play();
+					once = true;
+				}
+			}
 		}
 
 			while (window.pollEvent(event))
@@ -47,17 +61,25 @@ int main()
 				{
 					window.close();
 				}
-				if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space)
+				if (mainMenu.GetStart())
 				{
-					shoot.Shoot(dx, dy);
+					if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space)
+					{
+						shoot.Shoot(dx, dy, ui);
+					}
 				}
 			}
 		window.clear(sf::Color::Black);
+
 		shoot.SetRotation(180 + angle);
 		shoot.Draw(window);
 		object.Draw(window);
-		ui.Draw(window);
-
+		if (mainMenu.GetStart())
+		{
+			ui.Draw(window);
+		}
+		mainMenu.Draw(window);
+		
 		window.display();
 	}
 }
