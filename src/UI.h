@@ -18,6 +18,8 @@ public:
 	void Update(sf::Time time);
 	void SetHit(bool l_hit);
 
+	sf::Text GetText();
+
 	int GetHP();
 
 	void Draw(sf::RenderWindow& l_window);
@@ -30,6 +32,7 @@ private:
 	sf::Text m_waveText;
 	sf::Text m_gameOverText;
 	sf::Text m_comboEffectText;
+	sf::Text m_textEffect;
 
 	sf::RectangleShape m_waveBar;
 	sf::RectangleShape m_healthBar;
