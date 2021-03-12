@@ -22,13 +22,24 @@ void WorldCollision::Update(Object& l_obj, AngleShoot& l_as,UI& l_ui, sf::Time t
 				itr->GetShape()->getPosition().y + itr->GetShape()->getOrigin().y > it->GetShape()->getPosition().y &&
 				itr->GetShape()->getPosition().y - itr->GetShape()->getOrigin().y < it->GetShape()->getPosition().y&&!itr->m_isCollision)
 			{
-				itr->SetCollision(true);
-				it->SetCollision(true);
-				itr->m_velocity.x = 0.f;
-				itr->m_velocity.y = 0.f;
-				itr->m_particle.setEmitter(itr->GetShape()->getPosition());
-				l_ui.SetHit(true);
-				m_sound.play();
+				if (itr->GetShape()->getFillColor() == it->GetShape()->getFillColor()) {
+					itr->SetCollision(true);
+					it->SetCollision(true);
+					itr->m_velocity.x = 0.f;
+					itr->m_velocity.y = 0.f;
+					itr->m_particle.setEmitter(itr->GetShape()->getPosition());
+					itr->m_particle.SetColor(itr->GetShape()->getFillColor());
+					l_ui.SetHit(true);
+					m_sound.play();
+				}
+				else
+				{
+					it->GetText()->setFillColor(sf::Color(255, 255, 255, 255));
+					it->GetText()->setFillColor(it->GetShape()->getFillColor());
+					it->GetText()->setPosition(it->GetShape()->getPosition());
+					it->SetMiss(true);
+					it->SetColor(it->GetShape()->getFillColor());
+				}
 			}
 		}
 	}
