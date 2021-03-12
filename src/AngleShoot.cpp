@@ -29,13 +29,14 @@ void AngleShoot::Move(sf::Vector2f l_move)
 	m_triangle.move(l_move);
 }
 
-void AngleShoot::Shoot(double l,double r)
+void AngleShoot::Shoot(double l,double r,UI& l_ui)
 {
 	//DO OFFSET WINDOW	
 	if (m_coolDownTime > m_shootTime) 
 	{
 		m_shootSound.play();
-		m_bulletAmmo.push_back(Bullet(10.f, sf::Vector2f(m_triangle.getPosition().x - 10.f, m_triangle.getPosition().y - 10.f), sf::Color::Cyan, sf::Vector2f(l, r)));
+		sf::Color bullet = m_color.GetColor();
+			m_bulletAmmo.push_back(Bullet(10.f, sf::Vector2f(m_triangle.getPosition().x - 10.f, m_triangle.getPosition().y - 10.f), bullet, sf::Vector2f(l, r), l_ui.m_textEffect));
 		m_coolDownTime = 0.f;
 	}
 }
@@ -63,6 +64,7 @@ void AngleShoot::Update(sf::Time time,UI& l_ui)
 	for (auto itr = m_bulletAmmo.begin(); itr != m_bulletAmmo.end(); ++itr)
 	{
 		itr->GetShape()->move(itr->GetVelocity().x * time.asSeconds() * 120, itr->GetVelocity().y * time.asSeconds() * 120);
+		itr->Update(time);
 		if (itr->GetShape()->getPosition().x > m_triangle.getPosition().x * 2 || itr->GetShape()->getPosition().y > m_triangle.getPosition().y * 2
 			|| itr->GetShape()->getPosition().x < 0 || itr->GetShape()->getPosition().y < 0)
 		{
@@ -73,6 +75,9 @@ void AngleShoot::Update(sf::Time time,UI& l_ui)
 		{
 			return aloc.GetOutOfLayer();
 		}), m_bulletAmmo.end());
+
+	m_color.Update();
+	m_color.HandleInput();
 }
 
 void AngleShoot::SetPosition(sf::Vector2f l_position)
@@ -95,12 +100,19 @@ std::vector<Bullet>* AngleShoot::GetVectorBullet()
 	return &m_bulletAmmo;
 }
 
+void AngleShoot::ResetContainer()
+{
+	m_bulletAmmo.clear();
+}
+
 void AngleShoot::Draw(sf::RenderWindow& l_target)
 {
 
 	for (auto itr = m_bulletAmmo.begin(); itr != m_bulletAmmo.end(); ++itr)
 	{
 		l_target.draw(*itr->GetShape());
+		l_target.draw(*itr->GetText());
 	}
 	l_target.draw(m_triangle);
+	m_color.Draw(l_target);
 }
