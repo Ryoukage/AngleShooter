@@ -2,9 +2,12 @@
 
 
 
-Object::Object() :m_coolDownTarget(2.5f)
+Object::Object(MainMenu& l_mainMenu) :m_coolDownTarget(2.5f)
 {
-
+	m_colorSet.push_back(sf::Color::Red);
+	m_colorSet.push_back(sf::Color::Green);
+	m_colorSet.push_back(sf::Color::Blue);
+	m_ptrMainMenu = &l_mainMenu;
 }
 
 Object::Object(sf::Vector2f l_velocity, sf::Vector2f l_size, sf::Color l_color, sf::Vector2f l_position) : m_velocity(l_velocity), m_hit(false), m_isCollision(false), m_particle(1000), m_timeToDeath(2.f),m_erase(false)
@@ -13,9 +16,14 @@ Object::Object(sf::Vector2f l_velocity, sf::Vector2f l_size, sf::Color l_color, 
 	m_shape.setFillColor(l_color);
 	m_shape.setPosition(l_position);
 	m_shape.setOrigin(sf::Vector2f(l_size.x / 2.f, l_size.y / 2.f));
+
+	m_ptrMainMenu = nullptr;
 }
 
-Object::~Object(){}
+Object::~Object()
+{
+	
+}
 
 void Object::SetHit(bool l_hit)
 {
@@ -71,7 +79,7 @@ void Object::Update(sf::Time time,UI& l_ui)
 	}
 	for (auto itr = m_objectGroup.begin(); itr != m_objectGroup.end(); ++itr)
 	{
-		itr->m_shape.rotate(0.5f);
+		itr->m_shape.rotate(190 * time.asSeconds());
 		itr->m_shape.move(itr->m_velocity.x * time.asSeconds() * 60, itr->m_velocity.y * time.asSeconds() * 60);
 		//DO OFFSET WINDOW
 		if (itr->m_shape.getPosition().x > m_angleShoot.GetShape()->getPosition().x + 50.f && itr->m_shape.getPosition().x < m_angleShoot.GetShape()->getPosition().x + 100.f
@@ -79,7 +87,8 @@ void Object::Update(sf::Time time,UI& l_ui)
 		{
 			itr->SetHit(true);
 			l_ui.m_combo = 0;
-			l_ui.m_hp-=5;
+			if(m_ptrMainMenu->GetStart())
+				l_ui.m_hp-=5;
 		}
 	}
 	m_objectGroup.erase(std::remove_if(m_objectGroup.begin(), m_objectGroup.end(), [](Object& aloc)->bool
@@ -95,7 +104,12 @@ void Object::Spawn(sf::Vector2f l_position)
 	auto vector = std::sqrt(std::pow(dir.x, 2) + std::pow(dir.y, 2));
 	double dX = dir.x / vector;
 	double dY = dir.y / vector;
-	m_objectGroup.push_back(Object(sf::Vector2f(dX, dY), sf::Vector2f(50.f, 50.f), sf::Color::White, l_position));
+	m_objectGroup.push_back(Object(sf::Vector2f(dX, dY), sf::Vector2f(50.f, 50.f), m_colorSet[std::rand() % 3], l_position));
+}
+
+void Object::ResetContainer()
+{
+	m_objectGroup.clear();
 }
 
 std::vector<Object>* Object::GetVector()
