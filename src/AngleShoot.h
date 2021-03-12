@@ -4,6 +4,7 @@
 #include <SFML/System.hpp>
 #include "Bullet.h"
 #include "UI.h"
+#include "ColorSet.h"
 #include "SoundResource.h"
 #include <vector>
 #include <iostream>
@@ -20,8 +21,10 @@ public:
 	void SetPosition(sf::Vector2f l_position);
 	void Move(sf::Vector2f l_move);
 	void Update(sf::Time time, UI& l_ui);
-	void Shoot(double l_angle, double r_angle);
+	void Shoot(double l_angle, double r_angle, UI& l_ui);
 	void SetHit(bool l_hit);
+
+	void ResetContainer();
 
 	bool IsDead(UI& l_ui);
 
@@ -39,6 +42,7 @@ private:
 	sf::SoundBuffer m_shootSoundBuffer;
 	sf::Sound m_shootSound;
 	sf::CircleShape m_triangle;
+	ColorSet m_color;
 
 	bool m_hit;
 
